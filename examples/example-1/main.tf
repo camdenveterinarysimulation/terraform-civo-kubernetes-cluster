@@ -18,11 +18,14 @@ locals {
   region = "LON1"
 }
 
-module "civo-cluster-lon1" {
-    source = "../"
+module "civo_k8s" {
+    source = "../../"
     cluster_name = "poc-lon1-1"
     node_label   = "Terraform"
     region       = "LON1"
+    
+    cluster_node_count = 3
+    cluster_node_size  = "g4s.kube.medium"
 
     ingress_rule = [
       {

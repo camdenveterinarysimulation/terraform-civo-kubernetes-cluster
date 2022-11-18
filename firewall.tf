@@ -1,6 +1,4 @@
 resource "civo_firewall" "firewall" {
-  count = var.firewall_name != "" ? 0 : 1
-  
   name                 = "${var.cluster_name}-firewall"
   network_id           = civo_network.network[0].id
   create_default_rules = var.create_default_rules

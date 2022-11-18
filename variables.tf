@@ -22,15 +22,19 @@ variable "kubernetes_version" {
     default = ""
 }
 
+variable "cluster_node_count" {
+  type    = number
+  default = 3
+}
+
+variable "cluster_node_size" {
+  type = string
+  default = "g4s.kube.medium"
+}
+
 variable "network_name" {
     type = string
     description = "Name of the existing network"
-    default = ""
-}
-
-variable "firewall_name" {
-    type = string
-    description = "name of the existing firewall"
     default = ""
 }
 
