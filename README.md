@@ -91,5 +91,5 @@ No modules.
 ## Contributing
 
 We are greatful to the community for contributiong bugfixes and inprovements. Please see below to learn how you can take part.
-* Code of Conduct
-* Contributing Guide
+* [Code of Conduct](https://github.com/shipwright-sh/terraform-civo-k8s/blob/main/.github/CODE_OF_CONDUCT.md)
+* [Contributing Guide](https://github.com/shipwright-sh/terraform-civo-k8s/blob/main/.github/CONTRIBUTING.md)
