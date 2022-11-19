@@ -1,19 +1,12 @@
+variable "region" {
+  type    = string
+  default = "LON1"
+  description = "The region to provision the cluster against"
+}
+
 variable "cluster_name" {
     type = string
-    description = "name of the kubernetes cluster"
-}
-
-variable "node_count" {
-  type = number
-  description = "number of target nodes"
-  default = 3
-}
-
-variable "node_size" {
-    type = string
-    description = "instance type of the target nodes, choose from `g3.k3s.xsmall`, `g3.k3s.small`, `g3.k3s.medium`, `g3.k3s.large`, `g3.k3s.xlarge`, `g3.k3s.2xlarge`"
-    default = "g3.k3s.medium"
-  
+    description = "Name of the kubernetes cluster"
 }
 
 variable "kubernetes_version" {
@@ -23,18 +16,20 @@ variable "kubernetes_version" {
 }
 
 variable "cluster_node_count" {
-  type    = number
-  default = 3
+  type        = number
+  default     = 3
+  description = "The size of the nodes to provision. Run `civo size list` for all options"
 }
 
 variable "cluster_node_size" {
-  type = string
-  default = "g4s.kube.medium"
+    type = string
+    description = "Instance type of the target nodes, choose from `g3.k3s.xsmall`, `g3.k3s.small`, `g3.k3s.medium`, `g3.k3s.large`, `g3.k3s.xlarge`, `g3.k3s.2xlarge`"
+    default = "g3.k3s.medium"
 }
 
 variable "network_name" {
     type = string
-    description = "Name of the existing network"
+    description = "Name of the network"
     default = ""
 }
 
@@ -46,7 +41,7 @@ variable "ingress_rule" {
       cidr       = set(string)
       action     = string
     }))
-    description = "name of the existing firewall"
+    description = "Firewall ingress rule"
 }
 
 variable "egress_rule" {
@@ -57,7 +52,7 @@ variable "egress_rule" {
       cidr       = set(string)
       action     = string
     }))
-    description = "name of the existing firewall"
+    description = "Firewall egress rule"
 }
 
 variable "create_default_rules" {
@@ -78,12 +73,8 @@ variable "tags" {
     default = ""
 }
 
-variable "region" {
-    type = string
-    description = "Region for the Cluster"
-}
-
 variable "node_label" {
     type = string
-    description = "(optional) describe your variable"
+    description = "Node pool label"
+    default = ""
 }

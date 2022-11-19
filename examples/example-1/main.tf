@@ -1,27 +1,23 @@
 terraform {
   required_providers {
     civo = {
-      source = "civo/civo"
+      source  = "civo/civo"
       version = ">= 1.0.7"
     }
   }
 }
 
-variable "civo_token" {}
-
 provider "civo" {
-  token = var.civo_token
-  region = local.region
+  token  = var.civo_token
+  #region = var.region
 }
 
-locals {
-  region = "LON1"
-}
+variable "civo_token" {}
 
 module "civo_k8s" {
     source = "../../"
-    cluster_name = "poc-lon1-1"
-    node_label   = "Terraform"
+    cluster_name = "my-cluster"
+    node_label   = "development"
     region       = "LON1"
     
     cluster_node_count = 3

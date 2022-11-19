@@ -66,19 +66,17 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | name of the kubernetes cluster | `string` | n/a | yes |
-| <a name="input_cluster_node_count"></a> [cluster\_node\_count](#input\_cluster\_node\_count) | n/a | `number` | `3` | no |
-| <a name="input_cluster_node_size"></a> [cluster\_node\_size](#input\_cluster\_node\_size) | n/a | `string` | `"g4s.kube.medium"` | no |
+| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Name of the kubernetes cluster | `string` | n/a | yes |
+| <a name="input_cluster_node_count"></a> [cluster\_node\_count](#input\_cluster\_node\_count) | The size of the nodes to provision. Run `civo size list` for all options | `number` | `3` | no |
+| <a name="input_cluster_node_size"></a> [cluster\_node\_size](#input\_cluster\_node\_size) | Instance type of the target nodes, choose from `g3.k3s.xsmall`, `g3.k3s.small`, `g3.k3s.medium`, `g3.k3s.large`, `g3.k3s.xlarge`, `g3.k3s.2xlarge` | `string` | `"g3.k3s.medium"` | no |
 | <a name="input_cni"></a> [cni](#input\_cni) | CNI Plugin, available options: flannel, cilium | `string` | `"cilium"` | no |
 | <a name="input_create_default_rules"></a> [create\_default\_rules](#input\_create\_default\_rules) | Create default firewall rules | `bool` | `false` | no |
-| <a name="input_egress_rule"></a> [egress\_rule](#input\_egress\_rule) | name of the existing firewall | <pre>list(object({<br>      label      = string<br>      protocol   = string<br>      port_range = string<br>      cidr       = set(string)<br>      action     = string<br>    }))</pre> | n/a | yes |
-| <a name="input_ingress_rule"></a> [ingress\_rule](#input\_ingress\_rule) | name of the existing firewall | <pre>list(object({<br>      label      = string<br>      protocol   = string<br>      port_range = string<br>      cidr       = set(string)<br>      action     = string<br>    }))</pre> | n/a | yes |
+| <a name="input_egress_rule"></a> [egress\_rule](#input\_egress\_rule) | Firewall egress rule | <pre>list(object({<br>      label      = string<br>      protocol   = string<br>      port_range = string<br>      cidr       = set(string)<br>      action     = string<br>    }))</pre> | n/a | yes |
+| <a name="input_ingress_rule"></a> [ingress\_rule](#input\_ingress\_rule) | Firewall ingress rule | <pre>list(object({<br>      label      = string<br>      protocol   = string<br>      port_range = string<br>      cidr       = set(string)<br>      action     = string<br>    }))</pre> | n/a | yes |
 | <a name="input_kubernetes_version"></a> [kubernetes\_version](#input\_kubernetes\_version) | Supported version of the k3s cluster | `string` | `""` | no |
-| <a name="input_network_name"></a> [network\_name](#input\_network\_name) | Name of the existing network | `string` | `""` | no |
-| <a name="input_node_count"></a> [node\_count](#input\_node\_count) | number of target nodes | `number` | `3` | no |
-| <a name="input_node_label"></a> [node\_label](#input\_node\_label) | (optional) describe your variable | `string` | n/a | yes |
-| <a name="input_node_size"></a> [node\_size](#input\_node\_size) | instance type of the target nodes, choose from `g3.k3s.xsmall`, `g3.k3s.small`, `g3.k3s.medium`, `g3.k3s.large`, `g3.k3s.xlarge`, `g3.k3s.2xlarge` | `string` | `"g3.k3s.medium"` | no |
-| <a name="input_region"></a> [region](#input\_region) | Region for the Cluster | `string` | n/a | yes |
+| <a name="input_network_name"></a> [network\_name](#input\_network\_name) | Name of the network | `string` | `""` | no |
+| <a name="input_node_label"></a> [node\_label](#input\_node\_label) | Node pool label | `string` | `""` | no |
+| <a name="input_region"></a> [region](#input\_region) | The region to provision the cluster against | `string` | `"LON1"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Space separated list of tags | `string` | `""` | no |
 
 ## Outputs
