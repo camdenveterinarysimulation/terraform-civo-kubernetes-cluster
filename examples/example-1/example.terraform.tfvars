@@ -1,3 +1,3 @@
-region = "s"
+region = ""
 
 civo_token = ""
