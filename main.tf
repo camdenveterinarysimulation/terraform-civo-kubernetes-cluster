@@ -1,3 +1,18 @@
+terraform {
+  required_version = ">= 0.13"
+  required_providers {
+    civo = {
+      source  = "civo/civo"
+      version = ">= 1.0.18"
+    }
+  }
+}
+
+provider "civo" {
+  token = var.civo_token
+  region = var.region
+}
+
 resource "civo_network" "network" {
   count = var.network_name != "" ? 0 : 1
   label = "${var.cluster_name}-network"
@@ -7,7 +22,7 @@ resource "civo_firewall" "firewall" {
   name                 = "${var.cluster_name}-firewall"
   network_id           = civo_network.network[0].id
   create_default_rules = var.create_default_rules
-  
+
   dynamic "ingress_rule" {
     for_each = var.ingress_rule
     content {
