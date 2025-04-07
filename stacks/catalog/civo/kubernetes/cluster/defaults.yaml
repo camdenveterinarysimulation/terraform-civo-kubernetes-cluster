@@ -1,0 +1,13 @@
+components:
+  terraform:
+    civo/kubernetes/cluster:
+      metadata:
+        component: "civo/kubernetes/cluster"
+      vars:
+        name: "vem"
+        node_label: "development"
+        region: "LON1" 
+        cluster_node_count: 3
+        cluster_node_size: "g4s.kube.medium"
+        kubernetes_version: "1.29.8-k3s1"
+        create_default_rules: true

@@ -1,0 +1,32 @@
+components:
+  terraform:
+    civo/kubernetes/argocd:
+      vars:
+        name: "argocd"
+        namespace: "argocd"
+        chart_version: "7.7.2"
+        redis_ha_enabled: true
+        controller_replicas: 1
+        server_autoscaling_enabled: true
+        server_autoscaling_min_replicas: 2
+        reposerver_autoscaling_enabled: true
+        reposerver_autoscaling_min_replicas: 2
+        applicationset_relicas: 2
+        argocd_apps_chart_version: "2.0.2"
+        applications:
+          argocd:
+            create_namespace: true
+            argo_namespace: "argocd"
+            app_namespace: "argocd"
+            source_url: "https://argoproj.github.io/argo-helm"
+            values_url: "git@github.com:voltua/vep-cluster-bootstrap.git"
+            target_revision: "7.7.2"
+            chart: "argo-cd"
+          bootstrap:
+            create_namespace: false
+            argo_namespace: "argocd"
+            app_namespace: "argocd"
+            source_url: "https://argoproj.github.io/argo-helm"
+            values_url: "git@github.com:voltua/vep-cluster-bootstrap.git"
+            target_revision: "2.0.2"
+            chart: "argocd-apps"

@@ -1,7 +1,7 @@
-output "kubeconfig" {
-  value       = civo_kubernetes_cluster.cluster.kubeconfig
-  description = "The kubeconfig of the cluster"
-}
+#output "kubeconfig" {
+#  value       = civo_kubernetes_cluster.cluster.kubeconfig
+#  description = "The kubeconfig of the cluster"
+#}
 
 output "master_ip" {
   value       = civo_kubernetes_cluster.cluster.master_ip

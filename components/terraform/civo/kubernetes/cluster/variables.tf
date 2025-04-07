@@ -3,13 +3,19 @@ variable "civo_token" {
   description = "A token used for authentication."
 }
 
+variable "stage" {
+  type        = string
+  default     = null
+  description = "ID element. Usually used to indicate role, e.g. 'prod', 'staging', 'source', 'build', 'test', 'deploy', 'release'"
+}
+
 variable "region" {
   type        = string
   default     = "LON1"
   description = "The region to provision the cluster against"
 }
 
-variable "cluster_name" {
+variable "name" {
   type        = string
   description = "Name of the kubernetes cluster"
 }
@@ -47,6 +53,7 @@ variable "ingress_rule" {
     action     = string
   }))
   description = "Firewall ingress rule"
+  default = []
 }
 
 variable "egress_rule" {
@@ -58,6 +65,7 @@ variable "egress_rule" {
     action     = string
   }))
   description = "Firewall egress rule"
+  default = []
 }
 
 variable "create_default_rules" {

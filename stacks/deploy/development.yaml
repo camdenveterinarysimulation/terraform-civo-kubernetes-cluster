@@ -1,0 +1,6 @@
+import:
+  - catalog/civo/kubernetes/cluster/defaults
+  - catalog/civo/kubernetes/argocd/defaults
+
+vars:
+  stage: development
